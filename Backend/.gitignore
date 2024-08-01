@@ -1,0 +1,7 @@
+node_modules
+.env
+done.txt
+test.js
+finalData.json
+api
+/otherfiles

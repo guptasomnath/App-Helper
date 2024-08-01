@@ -1,0 +1,6 @@
+API1 : get all the projects. limit (10)
+API2 : get projects by category name. limit (10)
+API3 : search projects. limit (10)
+API4 : get single poject information
+API5 : count download
+API6 : user auth using google
