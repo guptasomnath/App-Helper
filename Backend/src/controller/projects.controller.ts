@@ -26,19 +26,21 @@ export const getAllProjects = async (
   let final_filter = `ORDER BY ${orderBy} DESC`;
 
   if (category !== undefined && search !== undefined) {
-    query += ` WHERE (CATEGORY LIKE '%${category}%' AND PROJECTNAME LIKE '%${search}%')`;
+    query += ` WHERE (CATEGORY LIKE '%${category}%' AND PROJECTNAME LIKE '%${search}%' AND STATUS = 'Public')`;
   } else if (category !== undefined) {
     if (filter !== undefined && filter !== "most-popular") {
-      query += ` WHERE (CATEGORY LIKE '%${category}%' AND ${filter_mapping[filter]})`;
+      query += ` WHERE (CATEGORY LIKE '%${category}%' AND ${filter_mapping[filter]} AND STATUS = 'Public')`;
     } else {
-      query += ` WHERE CATEGORY LIKE '%${category}%'`;
+      query += ` WHERE (CATEGORY LIKE '%${category}%' AND STATUS = 'Public')`;
     }
   } else if (search !== undefined) {
     if (filter !== undefined && filter !== "most-popular") {
-      query += ` WHERE (CATEGORY LIKE '%${category}%' AND ${filter_mapping[filter]})`;
+      query += ` WHERE (CATEGORY LIKE '%${category}%' AND ${filter_mapping[filter]} AND STATUS = 'Public')`;
     } else {
-      query += ` WHERE PROJECTNAME LIKE '%${search}%'`;
+      query += ` WHERE PROJECTNAME (LIKE '%${search}%' AND STATUS = 'Public')`;
     }
+  } else {
+    query += ` WHERE STATUS = 'Public'`;
   }
 
   if(filter !== undefined) {
@@ -66,9 +68,10 @@ export const getProjectWithId = async (req: Request, res: Response) => {
 
   if (!id) throw new ErrorHandler(400, "id is Required");
 
-  let sql = `SELECT ID,THUMBNAIL,PROJECTNAME,DATE,STORENAME,TOTALDOWNLOAD,VERSION,PRICE,PLATFORM,SCREENSHOTS,DESCRIPTION WHERE ID = ${id}`;
+  let sql = `SELECT ID,THUMBNAIL,PROJECTNAME,DATE,STORENAME,TOTALDOWNLOAD,VERSION,PRICE,PLATFORM,SCREENSHOTS,DESCRIPTION WHERE ID = ${id} AND STATUS = 'Public' OR STATUS = 'Unlist'`;
 
   const data = await productsDB().query(sql);
+  if(data.length === 0) return res.status(404).json(new ApiResponse(404, "No Data Found"));
   res
     .status(200)
     .json(

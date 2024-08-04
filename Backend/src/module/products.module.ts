@@ -13,7 +13,8 @@ const columnNames = [
   "PRICE",
   "PLATFORM",
   "SCREENSHOTS",
-  "DESCRIPTION"
+  "DESCRIPTION",
+  "STATUS"
 ]
 
 export const productsDB = () => {
