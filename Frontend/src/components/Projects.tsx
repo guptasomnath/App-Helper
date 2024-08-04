@@ -83,13 +83,13 @@ export default function Projects({
         {data?.data?.map((item) => (
           <li
             key={item.ID}
-            className="shadow-md w-[23%] float-left mx-[1%] sm:float-none sm:w-full md:w-[48%] lg:w-[31.33%] mb-5 bg-[var(--background-color)] p-3"
+            className="shadow-md w-[23%] rounded-xl float-left mx-[1%] sm:float-none sm:w-full md:w-[48%] lg:w-[31.33%] mb-5 bg-[var(--background-color)] p-3"
           >
             <Link to={`/projects/${encodeUrl(item.PROJECTNAME)}?id=${item.ID}`}>
-              <div className="aspect-video overflow-hidden bg-[#b9b9b9] transition-all duration-500">
+              <div className="aspect-video overflow-hidden rounded-xl bg-[#b9b9b9] transition-all duration-500">
                 <img
                   loading="lazy"
-                  className="size-full object-cover transition-all duration-500"
+                  className="size-full rounded-xl object-cover transition-all duration-500"
                   alt="project-thumnail"
                   src={replaceImageUrl(replaceSpacialChar(item.THUMBNAIL))}
                 />
