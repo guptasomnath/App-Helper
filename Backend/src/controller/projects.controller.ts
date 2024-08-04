@@ -68,7 +68,7 @@ export const getProjectWithId = async (req: Request, res: Response) => {
 
   if (!id) throw new ErrorHandler(400, "id is Required");
 
-  let sql = `SELECT ID,THUMBNAIL,PROJECTNAME,DATE,STORENAME,TOTALDOWNLOAD,VERSION,PRICE,PLATFORM,SCREENSHOTS,DESCRIPTION WHERE ID = ${id} AND STATUS = 'Public' OR STATUS = 'Unlist'`;
+  let sql = `SELECT ID,THUMBNAIL,PROJECTNAME,DATE,STORENAME,TOTALDOWNLOAD,VERSION,PRICE,PLATFORM,SCREENSHOTS,DESCRIPTION WHERE ID = ${id} AND (STATUS = 'Public' OR STATUS = 'Unlist')`;
 
   const data = await productsDB().query(sql);
   if(data.length === 0) return res.status(404).json(new ApiResponse(404, "No Data Found"));
