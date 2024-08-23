@@ -9,12 +9,12 @@ import Errorpage from "./components/Errorpage.tsx";
 // import Home from "./pages/Home.tsx";
 import Loading from "./components/Loading.tsx";
 import { QueryClient, QueryClientProvider } from "react-query";
-import Products from "./pages/Products.tsx";
+import Projects from "./pages/Projects.tsx";
 const ProjectDetails = lazy(() => import("./pages/ProjectDetails.tsx"));
 const Courses = lazy(() => import("./pages/Courses.tsx"));
 const Upload = lazy(() => import("./pages/Upload.tsx"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy.tsx"));
-// const About = lazy(() => import("./pages/About.tsx"));
+const About = lazy(() => import("./pages/About.tsx"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -32,9 +32,8 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <Errorpage />,
     children: [
-      { path: "/", element: <Products /> },
-      { path: "/products", element: <Products /> },
-      { path: "/projects", element: <Products /> },
+      { path: "/", element: <Projects /> },
+      { path: "/projects", element: <Projects /> },
       {
         path: "/projects/:projectId",
         element: (
@@ -67,14 +66,14 @@ const router = createBrowserRouter([
           </Suspense>
         ),
       },
-      // {
-      //   path: "/about-us",
-      //   element: (
-      //     <Suspense fallback={<Loading />}>
-      //       <About />
-      //     </Suspense>
-      //   ),
-      // },
+      {
+        path: "/about-me",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <About />
+          </Suspense>
+        ),
+      },
     ],
   },
 ]);

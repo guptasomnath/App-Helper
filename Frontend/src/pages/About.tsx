@@ -1,34 +1,111 @@
+import { Link } from "react-router-dom";
+import BadgeItem from "../components/BadgeItem";
+import { GrLinkNext } from "react-icons/gr";
+import {
+  BsGithub,
+  BsLinkedin,
+  BsPhoneFill,
+} from "react-icons/bs";
+import { MdMarkEmailRead } from "react-icons/md";
+
+const skills = [
+  {
+    type: "Known Technologies : ",
+    skills: [
+      "React",
+      "Next",
+      "Express",
+      "MySql",
+      "MongoDb",
+      "SQL",
+      "TypeScript",
+      "JavaScript",
+      "Core Java",
+      "Core Php",
+    ],
+  },
+];
+
 export default function About() {
   return (
     <section>
-      <div className="flex items-center py-10 flex-wrap">
-        <div className="flex-grow w-96 px-10 sm:px-0 py-10">
-          <h1 className="text-2xl font-semibold text-gray-700">
-            Case Solution Guru Strives For Quality Service And 100% Satisfaction
-            Of Customers!
+      <div className="grid grid-cols-2 py-10 px-6 h-full gap-16 sm:grid-cols-1 sm:gap-10 sm:px-0 sm:py-5">
+        <div className="flex flex-col gap-5 sm:order-2 h-full">
+          <h1 className="font-[600] uppercase text-5xl tracking-widest text-nowrap sm:text-wrap sm:text-3xl">
+            Somnath Gupta
           </h1>
-          <p className="text-sm mt-1 text-gray-500 leading-5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
-            labore nihil. Totam placeat rerum fugit dicta modi maiores earum
-            harum, culpa excepturi distinctio velit! Adipisci rerum ipsam quos
-            provident autem.
+          <p className="text-gray-500 text-justify font-[300]">
+            Full Stack Developer with expertise in MERN stack. Familiar with
+            core Java, core PHP. Seeking new opportunities.
           </p>
-          <button className="bg-[var(--button-bg)] mt-5 text-sm text-white px-4 py-[0.7rem] rounded-md shadow-lg">
-            Write my essay
-          </button>
-        </div>
-        <div className="flex-grow flex-center py-10">
-          <div className="size-60 overflow-hidden bg-white rounded-3xl">
-            <img src="/20220623_121328.png" />
+          {/* contact info */}
+          <div className="flex flex-wrap gap-x-10 sm:gap-x-5 gap-y-4">
+            <Link
+              className="flex items-center gap-2 text-gray-600"
+              to={"mailto:somnathgupta112@gmail.com"}
+            >
+              <MdMarkEmailRead />
+              somnathgupta112@gmail.com
+            </Link>
+            <Link
+              className="flex items-center gap-2 text-gray-600"
+              to={"tel:9382413005"}
+            >
+              <BsPhoneFill />
+              +91 9382413005
+            </Link>
+            <Link
+              className="flex items-center gap-2 text-gray-600"
+              to={"https://github.com/guptasomnath?tab=repositories"}
+            >
+              <BsGithub />
+              guptasomnath
+            </Link>
+            <Link
+              className="flex items-center gap-2 text-gray-600"
+              to={"https://www.linkedin.com/in/guptasomnath/"}
+            >
+              <BsLinkedin />
+              guptasomnath
+            </Link>
+          </div>
+          {skills.map((info) => (
+            <div className="space-y-3 w-full">
+              <h2 className="font-medium">{info.type}</h2>
+              <div className="flex items-center gap-5 flex-wrap">
+                {info.skills.map((skill) => (
+                  <BadgeItem className="bg-gray-300 text-black">
+                    {skill}
+                  </BadgeItem>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          {/* Action Buttons */}
+
+          <div className="flex flex-wrap gap-x-5 gap-y-3">
+            <Link className="flex-grow" to={"/projects?category=web-apps"}>
+              <BadgeItem className="bg-[var(--button-bg)] py-3 hover:bg-[#5d5492da] text-white shadow-2xl uppercase space-x-3 transition-all duration-300">
+                <span>My Projects</span>
+                <GrLinkNext />
+              </BadgeItem>
+            </Link>
+            <Link className="flex-grow" to={"https://drive.google.com/file/d/1E-1fktTun_Z1t9_Hn-X5ueKFSzCWkJ3I/view"}>
+              <BadgeItem className="bg-gray-300 py-3 hover:bg-gray-400 text-black shadow-2xl uppercase space-x-3 transition-all duration-300">
+                <span>My Resume</span>
+                <GrLinkNext />
+              </BadgeItem>
+            </Link>
           </div>
         </div>
-      </div>
-      <div className="flex flex-col item-center">
-        <h2 className="text-center text-3xl font-poopins">Services we Provide</h2>
-        <p className="text-center text-sm text-gray-500 mt-2 px-32">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi,
-          temporibus iure.
-        </p>
+        <div className="sm:order-1 h-full">
+          <img
+            className="w-96 rounded-3xl object-contain"
+            src="/profile_image.67decf5d.jpg"
+            alt="Profile Image"
+          />
+        </div>
       </div>
     </section>
   );

@@ -22,7 +22,7 @@ import { useAuthentication } from "../hooks/useAuthentication";
 export default function ProjectDetails() {
   const searchParams = useSearchParams();
   const [bannerList, setBannerList] = useState<string[]>([]);
-  const { isAuthenticated, userInfo } = useAuthentication();
+  const { isAuthenticated, setUserInformation, userInfo } = useAuthentication();
   const dispatch = useDispatch();
 
   const PROJECT_ID = searchParams[0].get("id");
@@ -59,6 +59,7 @@ export default function ProjectDetails() {
     onError: (error: AxiosError<ISuccess<string>>) => {
       if (error.response?.status === 401) {
         //user should login
+        setUserInformation(null);
         dispatch(setLoginDialogVisibility(true));
       } else {
         alert(error.response?.data.message);

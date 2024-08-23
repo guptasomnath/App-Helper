@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { GoHome } from "react-icons/go";
 import { PiUpload } from "react-icons/pi";
 import { CiLogout } from "react-icons/ci";
@@ -10,24 +9,20 @@ import { setSidebarVisibility } from "../redux/slices/sidebar.slice";
 import { useLocation, useNavigate } from "react-router-dom";
 import OpenLoginDialogBtn from "./OpenLoginDialogBtn";
 import { useAuthentication } from "../hooks/useAuthentication";
+import { GoPeople } from "react-icons/go";
 
 const sidebar_options = [
   { icon: <GoHome />, name: "Home", path: "/" },
-  { icon: <AiOutlineProduct />, name: "Products", path: "/products" },
+  { icon: <AiOutlineProduct />, name: "Projects", path: "/projects" },
   { icon: <PiVideoThin />, name: "My Course", path: "/courses" },
   { icon: <PiUpload />, name: "Upload", path: "/upload" },
+  { icon: <GoPeople />, name: "About Me", path: "/about-me" },
 ];
 
 export default function Sidebar() {
   const pathname = useLocation().pathname;
   const { isAuthenticated, setUserInformation, userInfo } = useAuthentication();
 
-  const getCurrentPathNameIndex = () => {
-    //return 0 if not exist
-    return sidebar_options.findIndex((value) => value.path === pathname);
-  };
-
-  const [currentTab, setCurrentTab] = useState(getCurrentPathNameIndex());
   const sideBarVisibility = useSelector((state: RootState) => state.sidebar);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -45,7 +40,6 @@ export default function Sidebar() {
 
     //navigate to the sidebar path
     navigate(sidebar_options[currentItemIndex].path);
-    setCurrentTab(currentItemIndex);
   };
 
   if (isAuthenticated) {
@@ -102,7 +96,7 @@ export default function Sidebar() {
               onClick={() => onAnyNavSideBarItemClick(index)}
               key={item.name}
               className={`flex items-center gap-2 cursor-pointer border-l-[3.5px] ${
-                currentTab === index
+                item.path === pathname
                   ? "text-[var(--heading-color)] border-[var(--heading-color)]"
                   : "text-gray-500 border-transparent"
               } px-5`}

@@ -10,12 +10,12 @@ import { CgWebsite } from "react-icons/cg";
 import { VscGithub } from "react-icons/vsc";
 import { FaLinkedinIn } from "react-icons/fa6";
 
-const contact_info = [
+const CONTACT_INFO = [
   {
     icon: <MdOutlineMailOutline className="mt-1" size={20} />,
     heading: "Email ID",
-    subtitle: "appwalama@gmail.com",
-    link: "mailto:appwalama@gmail.com",
+    subtitle: "somnathgupta112@gmail.com",
+    link: "mailto:somnathgupta112@gmail.com",
   },
   {
     icon: <PiTelegramLogoLight className="mt-1" size={20} />,
@@ -39,7 +39,7 @@ const contact_info = [
     icon: <FaLinkedinIn className="mt-1" size={20} />,
     heading: "Somnath Gupta",
     subtitle: "guptasomnath",
-    link: "https://www.linkdin.com/in/guptasomnath",
+    link: "https://www.linkedin.com/in/guptasomnath/",
   },
 ];
 
@@ -85,7 +85,7 @@ export default function ContactUs() {
             />
           </div>
           <ul className="size-full">
-            {contact_info.map((info, index) => (
+            {CONTACT_INFO.map((info, index) => (
               <li key={index}>
                 <Link
                   to={info.link}
