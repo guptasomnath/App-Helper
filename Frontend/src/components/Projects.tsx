@@ -42,7 +42,7 @@ export default function Projects({
     if (curretnTab !== "") {
       searchP.set("category", curretnTab);
     } else {
-      searchP.set("category", "Aia File");
+      searchP.set("category", "Web Apps");
     }
 
     if (skip) {
