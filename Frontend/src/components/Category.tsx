@@ -16,7 +16,7 @@ export default function Category({ categories }: IProps) {
   if (curretnTab === "") curretnTab = "Web Apps";
 
   return (
-    <ul className="flex items-center gap-5 sm:overflow-x-scroll hide-scrollbar">
+    <ul className={`flex items-center gap-5 sm:overflow-x-scroll hide-scrollbar`}>
       {categories.map((item, index) => (
         <li key={index}>
           <Link to={`?category=${encodeUrl(categories[index])}`}>

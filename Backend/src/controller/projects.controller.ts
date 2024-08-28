@@ -14,7 +14,7 @@ export const getAllProjects = async (
   const orderBy: string = req.query.orderBy?.toString() || "ID";
   const filter = req.query.filter?.toString();
   const category = req.query.category;
-  const search = req.query.search;
+  const search = req.query.search?.toString().toLowerCase();
 
   const filter_mapping: any = {
     "most-popular": "ORDER BY TOTALDOWNLOAD DESC",
@@ -26,7 +26,7 @@ export const getAllProjects = async (
   let final_filter = `ORDER BY ${orderBy} DESC`;
 
   if (category !== undefined && search !== undefined) {
-    query += ` WHERE (CATEGORY LIKE '%${category}%' AND PROJECTNAME LIKE '%${search}%' AND STATUS = 'Public')`;
+    query += ` WHERE (CATEGORY LIKE '%${category}%' AND LOWER(PROJECTNAME) CONTAINS '${search}' OR LOWER(DESCRIPTION) CONTAINS '${search}' AND STATUS = 'Public')`;
   } else if (category !== undefined) {
     if (filter !== undefined && filter !== "most-popular") {
       query += ` WHERE (CATEGORY LIKE '%${category}%' AND ${filter_mapping[filter]} AND STATUS = 'Public')`;
@@ -37,7 +37,7 @@ export const getAllProjects = async (
     if (filter !== undefined && filter !== "most-popular") {
       query += ` WHERE (CATEGORY LIKE '%${category}%' AND ${filter_mapping[filter]} AND STATUS = 'Public')`;
     } else {
-      query += ` WHERE PROJECTNAME (LIKE '%${search}%' AND STATUS = 'Public')`;
+      query += ` WHERE LOWER(PROJECTNAME) (CONTAINS '${search}' OR LOWER(DESCRIPTION) CONTAINS '${search}' AND STATUS = 'Public')`;
     }
   } else {
     query += ` WHERE STATUS = 'Public'`;

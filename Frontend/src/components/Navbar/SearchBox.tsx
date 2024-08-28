@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { IoSearch } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +13,9 @@ export default function SearchBox({
 }: IProps) {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
-  const searchParams = new URLSearchParams(window.location.search);
+  // const searchParams = new URLSearchParams(window.location.search);
+  // const currentCategory = searchParams.get("category");
+  // const [placeholder, setPlaceholder] = useState<string>("web apps");
 
   const handleSearchBtnClick = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -26,8 +28,9 @@ export default function SearchBox({
         "Enter something to search"
       );
 
-    searchParams.set("search", searchValue as string);
-    navigate(`?${searchParams.toString()}`);
+    // searchParams.set("search", searchValue as string);
+    // navigate(`?${searchParams.toString()}`);
+    navigate(`?search=${searchValue.toString()}`);
     setSearchInputVisibility(false);
   };
 
@@ -44,6 +47,12 @@ export default function SearchBox({
       return () => clearTimeout(timeOutID);
     }
   }, [searchInputVisibility]);
+
+  // useEffect(() => {
+  //   if (currentCategory) {
+  //     setPlaceholder(currentCategory.replaceAll("-", " "));
+  //   }
+  // }, [currentCategory]);
 
   return (
     <div
@@ -69,7 +78,7 @@ export default function SearchBox({
           className="outline-none bg-transparent flex-grow text-sm placeholder:text-gray-400"
           type="text"
           // defaultValue={searchParams.get("search") || ""}
-          placeholder="Search for products.."
+          placeholder={`Search projects..`}
         />
         <button type="submit" className="sm:hidden">
           <IoSearch size={20} />
