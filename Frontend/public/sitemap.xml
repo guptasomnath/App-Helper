@@ -53,18 +53,18 @@
 
 <!-- Categories with populer filter -->
 <url>
-	<loc>https://www.apphelper.store/?category=web-apps&filter=most-popular</loc>
+	<loc>https://www.apphelper.store/?category=web-apps&amp;filter=most-popular</loc>
 </url>
 <url>
-	<loc>https://www.apphelper.store/?category=aia-file&filter=most-popular</loc>
+	<loc>https://www.apphelper.store/?category=aia-file&amp;filter=most-popular</loc>
 </url>
 <url>
-	<loc>https://www.apphelper.store/?category=extension&filter=most-popular</loc>
+	<loc>https://www.apphelper.store/?category=extension&amp;filter=most-popular</loc>
 </url>
 <url>
-	<loc>https://www.apphelper.store/?category=sketchware-swb-file&filter=most-popular</loc>
+	<loc>https://www.apphelper.store/?category=sketchware-swb-file&amp;filter=most-popular</loc>
 </url>
 <url>
-	<loc>https://www.apphelper.store/?category=sketchware-block&filter=most-popular</loc>
+	<loc>https://www.apphelper.store/?category=sketchware-block&amp;filter=most-popular</loc>
 </url>
 </urlset>
