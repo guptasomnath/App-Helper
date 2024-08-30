@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>https://www.apphelper.store/</loc>
+</url>
+<url>
+	<loc>https://www.apphelper.store/projects</loc>
+</url>
+<url>
+	<loc>https://www.apphelper.store/courses</loc>
+</url>
+<url>
+	<loc>https://www.apphelper.store/upload</loc>
+</url>
+<url>
+	<loc>https://www.apphelper.store/about-me</loc>
+</url>
+<url>
+	<loc>https://www.apphelper.store/privacy-policy</loc>
+</url>
+<url>
+	<loc>https://www.apphelper.store/?filter=most-popular</loc>
+</url>
+<url>
+	<loc>https://www.apphelper.store/?filter=free</loc>
+</url>
+<url>
+	<loc>https://www.apphelper.store/?filter=paid</loc>
+</url>
+<url>
+	<loc>https://www.apphelper.store/?filter=paid</loc>
+</url>
+<url>
+	<loc>https://www.apphelper.store/?filter=paid</loc>
+</url>
+
+<!-- Categories -->
+<url>
+	<loc>https://www.apphelper.store/?category=web-apps</loc>
+</url>
+<url>
+	<loc>https://www.apphelper.store/?category=aia-file</loc>
+</url>
+<url>
+	<loc>https://www.apphelper.store/?category=extension</loc>
+</url>
+<url>
+	<loc>https://www.apphelper.store/?category=sketchware-swb-file</loc>
+</url>
+<url>
+	<loc>https://www.apphelper.store/?category=sketchware-block</loc>
+</url>
+
+<!-- Categories with populer filter -->
+<url>
+	<loc>https://www.apphelper.store/?category=web-apps&filter=most-popular</loc>
+</url>
+<url>
+	<loc>https://www.apphelper.store/?category=aia-file&filter=most-popular</loc>
+</url>
+<url>
+	<loc>https://www.apphelper.store/?category=extension&filter=most-popular</loc>
+</url>
+<url>
+	<loc>https://www.apphelper.store/?category=sketchware-swb-file&filter=most-popular</loc>
+</url>
+<url>
+	<loc>https://www.apphelper.store/?category=sketchware-block&filter=most-popular</loc>
+</url>
+</urlset>

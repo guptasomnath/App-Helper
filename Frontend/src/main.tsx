@@ -15,6 +15,8 @@ const Courses = lazy(() => import("./pages/Courses.tsx"));
 const Upload = lazy(() => import("./pages/Upload.tsx"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy.tsx"));
 const About = lazy(() => import("./pages/About.tsx"));
+import { HelmetProvider } from "react-helmet-async";
+import Home from "./pages/Home.tsx";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -32,7 +34,7 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <Errorpage />,
     children: [
-      { path: "/", element: <Projects /> },
+      { path: "/", element: <Home /> },
       { path: "/projects", element: <Projects /> },
       {
         path: "/projects/:projectId",
@@ -80,10 +82,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   // <React.StrictMode>
-  <Provider store={store}>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
-  </Provider>
+  <HelmetProvider>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </Provider>
+  </HelmetProvider>
   // </React.StrictMode>
 );

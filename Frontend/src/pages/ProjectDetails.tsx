@@ -18,6 +18,8 @@ import Spinner from "../components/Spinner";
 import { setLoginDialogVisibility } from "../redux/slices/loginDialog.slice";
 import { useDispatch } from "react-redux";
 import { useAuthentication } from "../hooks/useAuthentication";
+import { Helmet } from "react-helmet-async";
+import { encodeUrl } from "../utils/purifyUrl";
 
 export default function ProjectDetails() {
   const searchParams = useSearchParams();
@@ -99,6 +101,30 @@ export default function ProjectDetails() {
 
   return (
     <LoadingHandler<Error | null> isLoading={isLoading} error={error}>
+      <Helmet>
+        <title>{data?.data?.PROJECTNAME} - App Helper Store</title>
+        <meta
+          name="description"
+          content={
+            "Browse a variety of real-world coding projects developed by Somnath Gupta, including full-stack applications and innovative web solutions."
+          }
+        />
+        <meta
+          property="og:title"
+          content={data?.data?.PROJECTNAME + " - App Helper Store"}
+        />
+        <meta
+          property="og:description"
+          content="Browse a variety of real-world coding projects developed by Somnath Gupta, including full-stack applications and innovative web solutions."
+        />
+        <meta
+          property="og:url"
+          content={`/projects/${encodeUrl(
+            data?.data?.PROJECTNAME as string
+          )}?id=${data?.data?.ID}`}
+        />
+        <meta property="og:image" content={data?.data?.THUMBNAIL} />
+      </Helmet>
       <div className="flex flex-wrap gap-10 sm:gap-3">
         <div className="basis-96 aspect-video flex-grow rounded-xl relative flex items-center overflow-hidden">
           <ImageSlider image_list={bannerList} />

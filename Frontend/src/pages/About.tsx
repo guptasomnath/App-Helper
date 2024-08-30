@@ -1,12 +1,9 @@
 import { Link } from "react-router-dom";
 import BadgeItem from "../components/BadgeItem";
 import { GrLinkNext } from "react-icons/gr";
-import {
-  BsGithub,
-  BsLinkedin,
-  BsPhoneFill,
-} from "react-icons/bs";
+import { BsGithub, BsLinkedin, BsPhoneFill } from "react-icons/bs";
 import { MdMarkEmailRead } from "react-icons/md";
+import { Helmet } from "react-helmet-async";
 
 const skills = [
   {
@@ -29,6 +26,30 @@ const skills = [
 export default function About() {
   return (
     <section>
+      <Helmet>
+        <title>About Somnath Gupta</title>
+        <meta
+          name="description"
+          content="Learn more about Somnath Gupta, a skilled full-stack web developer specializing in React, Node.js, and other modern web technologies."
+        />
+        <meta
+          name="keywords"
+          content="Somnath Gupta, full-stack developer, JavaScript developer, web development, about Somnath, App Helper Store"
+        />
+        <meta
+          property="og:title"
+          content="About Somnath Gupta - App Helper Store"
+        />
+        <meta
+          property="og:description"
+          content="Get to know Somnath Gupta, the developer behind App Helper Store, with expertise in React, Node.js, and full-stack development."
+        />
+        <meta property="og:url" content="https://www.apphelper.store/about" />
+        <meta
+          property="og:image"
+          content="https://www.apphelper.store/profile_image.67decf5d.jpg"
+        />
+      </Helmet>
       <div className="grid grid-cols-2 py-10 px-6 h-full gap-16 sm:grid-cols-1 sm:gap-10 sm:px-0 sm:py-5">
         <div className="flex flex-col gap-5 sm:order-2 h-full">
           <h1 className="font-[600] uppercase text-5xl tracking-widest text-nowrap sm:text-wrap sm:text-3xl">
@@ -91,7 +112,12 @@ export default function About() {
                 <GrLinkNext />
               </BadgeItem>
             </Link>
-            <Link className="flex-grow" to={"https://drive.google.com/file/d/1E-1fktTun_Z1t9_Hn-X5ueKFSzCWkJ3I/view"}>
+            <Link
+              className="flex-grow"
+              to={
+                "https://drive.google.com/file/d/1E-1fktTun_Z1t9_Hn-X5ueKFSzCWkJ3I/view"
+              }
+            >
               <BadgeItem className="bg-gray-300 py-3 hover:bg-gray-400 text-black shadow-2xl uppercase space-x-3 transition-all duration-300">
                 <span>My Resume</span>
                 <GrLinkNext />
