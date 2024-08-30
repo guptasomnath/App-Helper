@@ -120,7 +120,7 @@ export default function ProjectDetails() {
         <meta
           property="og:url"
           content={`/projects/${encodeUrl(
-            data?.data?.PROJECTNAME as string
+            data?.data?.PROJECTNAME || ""
           )}?id=${data?.data?.ID}`}
         />
         <meta property="og:image" content={data?.data?.THUMBNAIL} />
