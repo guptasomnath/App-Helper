@@ -89,3 +89,16 @@ export const downloadFile = async (req: Request, res: Response) => {
 
   res.status(200).json(new ApiResponse(200, "Download url", downloadURL));
 };
+
+
+/* 
+
+upload file to db
+ * user should have an account
+ * user should authenticated
+
+*/
+export const uploadFile = async (req : Request, res : Response) => {
+
+
+}

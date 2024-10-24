@@ -5,5 +5,6 @@ export const replaceSpacialChar = (text: string) => {
       "https://drive.google.com/uc?id=",
       "https://drive.usercontent.google.com/download?id="
     )
-    .replaceAll("CO3A",",");
+    .replaceAll("CO3A", ",")
+    .replaceAll("AND", "&");
 };
